@@ -1,0 +1,57 @@
+CREATE TABLE `ctu_report_section3_inprog` (
+  `report_id` int(11),
+  `previousoutlineproposalsshortlisted` int(11) DEFAULT NULL,
+  `previousoutlineproposalsrejected` int(11) DEFAULT NULL,
+  `currentoutlineproposalssubmitted` int(11) DEFAULT NULL,
+  `currentoutlineproposalsshortlisted` int(11) DEFAULT NULL,
+  `currentoutlineproposalsrejected` int(11) DEFAULT NULL,
+  `currentoutlineproposalsdecisionpending` int(11) DEFAULT NULL,
+  `outlineproposalsdetail` text DEFAULT NULL,
+  `previousfullproposalsfunded` int(11) DEFAULT NULL,
+  `previousfullproposalsrejected` int(11) DEFAULT NULL,
+  `currentfullproposalssubmitted` int(11) DEFAULT NULL,
+  `currentfullproposalsfunded` int(11) DEFAULT NULL,
+  `currentfullproposalsfundwithchange` int(11) DEFAULT NULL,
+  `currentfullproposalsdeferred` int(11) DEFAULT NULL,
+  `currentfullproposalsresubmitting` int(11) DEFAULT NULL,
+  `currentfullproposalstransferred` int(11) DEFAULT NULL,
+  `currentfullproposalsrejected` int(11) DEFAULT NULL,
+  `currentfullproposalsdecisionpending` int(11) DEFAULT NULL,
+  `fullproposalsdetail` text DEFAULT NULL,
+  `nihrprojectsstartedduringperiod` int(11) DEFAULT NULL,
+  `totalcurrentnihrprojects` int(11)  DEFAULT NULL
+)
+
+CREATE TABLE `ctu_report_section3outline_inprog` (
+  `report_id` int(11),
+  `outline_rank` int(11),
+  `title` varchar(200) DEFAULT NULL,
+  `programme` enum('HTA','EME','HSDR','PHR','RfPB','PGfAR','i4i') DEFAULT NULL,
+  `reference` varchar(100) DEFAULT NULL,
+  `submitdate` date DEFAULT NULL,
+  `staffinput` varchar(200) DEFAULT NULL,
+  `expectedvalue` varchar(50) DEFAULT NULL,
+  `status` enum('Full Proposal Invited','Reject','Decision Pending') DEFAULT NULL
+)
+
+CREATE TABLE `ctu_report_section3full_inprog` (
+  `report_id` int(11) NOT NULL,
+  `full_rank` int(11) NOT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `nihrprojectref` varchar(200) DEFAULT NULL,
+  `programme` enum('HTA','EME','HSR','SDO','HSDR','PHR','RfPB','PGfAR','i4i') DEFAULT NULL,
+  `datesubmitted` datetime DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `plannedrecruitmenttotal` int(11) DEFAULT NULL,
+  `numberofprojectsites` int(11) DEFAULT NULL,
+  `intmultisite` enum('yes','no') DEFAULT NULL,
+  `expectedinput` text,
+  `currentstatus` varchar(200) DEFAULT NULL,
+  `estimatedoractualstartdate` datetime DEFAULT NULL,
+  `isstartdateestimated` enum('yes','no') DEFAULT NULL,
+  `totalcost` decimal(13,2) DEFAULT NULL,
+  `expectedvalue` decimal(13,2) DEFAULT NULL,
+  `estimatedstaffcosts` decimal(13,2) DEFAULT NULL,
+  `estimatednonstaffcosts` decimal(13,2) DEFAULT NULL,
+  `nonstaffdesc` text
+)
